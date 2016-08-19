@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B39656CB1D66A1E90014E1B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656CA1D66A1E90014E1B2 /* AppDelegate.swift */; };
+		B39656CD1D66A1E90014E1B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656CC1D66A1E90014E1B2 /* ViewController.swift */; };
+		B39656D01D66A1E90014E1B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39656CE1D66A1E90014E1B2 /* Main.storyboard */; };
+		B39656D21D66A1E90014E1B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39656D11D66A1E90014E1B2 /* Assets.xcassets */; };
+		B39656D51D66A1E90014E1B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39656D31D66A1E90014E1B2 /* LaunchScreen.storyboard */; };
+		B39656E01D66A1EA0014E1B2 /* UniSelectionFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656DF1D66A1EA0014E1B2 /* UniSelectionFieldTests.swift */; };
+		B39656EB1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656EA1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B39656DC1D66A1EA0014E1B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B39656BF1D66A1E90014E1B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B39656C61D66A1E90014E1B2;
+			remoteInfo = UniSelectionField;
+		};
+		B39656E71D66A1EA0014E1B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B39656BF1D66A1E90014E1B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B39656C61D66A1E90014E1B2;
+			remoteInfo = UniSelectionField;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B39656C71D66A1E90014E1B2 /* UniSelectionField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniSelectionField.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B39656CA1D66A1E90014E1B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B39656CC1D66A1E90014E1B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B39656CF1D66A1E90014E1B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B39656D11D66A1E90014E1B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B39656D41D66A1E90014E1B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B39656D61D66A1E90014E1B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B39656DB1D66A1EA0014E1B2 /* UniSelectionFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniSelectionFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B39656DF1D66A1EA0014E1B2 /* UniSelectionFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniSelectionFieldTests.swift; sourceTree = "<group>"; };
+		B39656E11D66A1EA0014E1B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B39656E61D66A1EA0014E1B2 /* UniSelectionFieldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniSelectionFieldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B39656EA1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniSelectionFieldUITests.swift; sourceTree = "<group>"; };
+		B39656EC1D66A1EA0014E1B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B39656C41D66A1E90014E1B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39656D81D66A1EA0014E1B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39656E31D66A1EA0014E1B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B39656BE1D66A1E90014E1B2 = {
+			isa = PBXGroup;
+			children = (
+				B39656C91D66A1E90014E1B2 /* UniSelectionField */,
+				B39656DE1D66A1EA0014E1B2 /* UniSelectionFieldTests */,
+				B39656E91D66A1EA0014E1B2 /* UniSelectionFieldUITests */,
+				B39656C81D66A1E90014E1B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B39656C81D66A1E90014E1B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B39656C71D66A1E90014E1B2 /* UniSelectionField.app */,
+				B39656DB1D66A1EA0014E1B2 /* UniSelectionFieldTests.xctest */,
+				B39656E61D66A1EA0014E1B2 /* UniSelectionFieldUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B39656C91D66A1E90014E1B2 /* UniSelectionField */ = {
+			isa = PBXGroup;
+			children = (
+				B39656CA1D66A1E90014E1B2 /* AppDelegate.swift */,
+				B39656CC1D66A1E90014E1B2 /* ViewController.swift */,
+				B39656CE1D66A1E90014E1B2 /* Main.storyboard */,
+				B39656D11D66A1E90014E1B2 /* Assets.xcassets */,
+				B39656D31D66A1E90014E1B2 /* LaunchScreen.storyboard */,
+				B39656D61D66A1E90014E1B2 /* Info.plist */,
+			);
+			path = UniSelectionField;
+			sourceTree = "<group>";
+		};
+		B39656DE1D66A1EA0014E1B2 /* UniSelectionFieldTests */ = {
+			isa = PBXGroup;
+			children = (
+				B39656DF1D66A1EA0014E1B2 /* UniSelectionFieldTests.swift */,
+				B39656E11D66A1EA0014E1B2 /* Info.plist */,
+			);
+			path = UniSelectionFieldTests;
+			sourceTree = "<group>";
+		};
+		B39656E91D66A1EA0014E1B2 /* UniSelectionFieldUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B39656EA1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift */,
+				B39656EC1D66A1EA0014E1B2 /* Info.plist */,
+			);
+			path = UniSelectionFieldUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B39656C61D66A1E90014E1B2 /* UniSelectionField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B39656EF1D66A1EA0014E1B2 /* Build configuration list for PBXNativeTarget "UniSelectionField" */;
+			buildPhases = (
+				B39656C31D66A1E90014E1B2 /* Sources */,
+				B39656C41D66A1E90014E1B2 /* Frameworks */,
+				B39656C51D66A1E90014E1B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UniSelectionField;
+			productName = UniSelectionField;
+			productReference = B39656C71D66A1E90014E1B2 /* UniSelectionField.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B39656DA1D66A1EA0014E1B2 /* UniSelectionFieldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B39656F21D66A1EA0014E1B2 /* Build configuration list for PBXNativeTarget "UniSelectionFieldTests" */;
+			buildPhases = (
+				B39656D71D66A1EA0014E1B2 /* Sources */,
+				B39656D81D66A1EA0014E1B2 /* Frameworks */,
+				B39656D91D66A1EA0014E1B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B39656DD1D66A1EA0014E1B2 /* PBXTargetDependency */,
+			);
+			name = UniSelectionFieldTests;
+			productName = UniSelectionFieldTests;
+			productReference = B39656DB1D66A1EA0014E1B2 /* UniSelectionFieldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B39656E51D66A1EA0014E1B2 /* UniSelectionFieldUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B39656F51D66A1EA0014E1B2 /* Build configuration list for PBXNativeTarget "UniSelectionFieldUITests" */;
+			buildPhases = (
+				B39656E21D66A1EA0014E1B2 /* Sources */,
+				B39656E31D66A1EA0014E1B2 /* Frameworks */,
+				B39656E41D66A1EA0014E1B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B39656E81D66A1EA0014E1B2 /* PBXTargetDependency */,
+			);
+			name = UniSelectionFieldUITests;
+			productName = UniSelectionFieldUITests;
+			productReference = B39656E61D66A1EA0014E1B2 /* UniSelectionFieldUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B39656BF1D66A1E90014E1B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Unigreen;
+				TargetAttributes = {
+					B39656C61D66A1E90014E1B2 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					B39656DA1D66A1EA0014E1B2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = B39656C61D66A1E90014E1B2;
+					};
+					B39656E51D66A1EA0014E1B2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = B39656C61D66A1E90014E1B2;
+					};
+				};
+			};
+			buildConfigurationList = B39656C21D66A1E90014E1B2 /* Build configuration list for PBXProject "UniSelectionField" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B39656BE1D66A1E90014E1B2;
+			productRefGroup = B39656C81D66A1E90014E1B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B39656C61D66A1E90014E1B2 /* UniSelectionField */,
+				B39656DA1D66A1EA0014E1B2 /* UniSelectionFieldTests */,
+				B39656E51D66A1EA0014E1B2 /* UniSelectionFieldUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B39656C51D66A1E90014E1B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39656D51D66A1E90014E1B2 /* LaunchScreen.storyboard in Resources */,
+				B39656D21D66A1E90014E1B2 /* Assets.xcassets in Resources */,
+				B39656D01D66A1E90014E1B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39656D91D66A1EA0014E1B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39656E41D66A1EA0014E1B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B39656C31D66A1E90014E1B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39656CD1D66A1E90014E1B2 /* ViewController.swift in Sources */,
+				B39656CB1D66A1E90014E1B2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39656D71D66A1EA0014E1B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39656E01D66A1EA0014E1B2 /* UniSelectionFieldTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B39656E21D66A1EA0014E1B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39656EB1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B39656DD1D66A1EA0014E1B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B39656C61D66A1E90014E1B2 /* UniSelectionField */;
+			targetProxy = B39656DC1D66A1EA0014E1B2 /* PBXContainerItemProxy */;
+		};
+		B39656E81D66A1EA0014E1B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B39656C61D66A1E90014E1B2 /* UniSelectionField */;
+			targetProxy = B39656E71D66A1EA0014E1B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B39656CE1D66A1E90014E1B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B39656CF1D66A1E90014E1B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B39656D31D66A1E90014E1B2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B39656D41D66A1E90014E1B2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B39656ED1D66A1EA0014E1B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B39656EE1D66A1EA0014E1B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B39656F01D66A1EA0014E1B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = UniSelectionField/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.unigreen.agricola.UniSelectionField;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B39656F11D66A1EA0014E1B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = UniSelectionField/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.unigreen.agricola.UniSelectionField;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B39656F31D66A1EA0014E1B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = UniSelectionFieldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.unigreen.agricola.UniSelectionFieldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniSelectionField.app/UniSelectionField";
+			};
+			name = Debug;
+		};
+		B39656F41D66A1EA0014E1B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = UniSelectionFieldTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.unigreen.agricola.UniSelectionFieldTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UniSelectionField.app/UniSelectionField";
+			};
+			name = Release;
+		};
+		B39656F61D66A1EA0014E1B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UniSelectionFieldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.unigreen.agricola.UniSelectionFieldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = UniSelectionField;
+			};
+			name = Debug;
+		};
+		B39656F71D66A1EA0014E1B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = UniSelectionFieldUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.unigreen.agricola.UniSelectionFieldUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = UniSelectionField;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B39656C21D66A1E90014E1B2 /* Build configuration list for PBXProject "UniSelectionField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B39656ED1D66A1EA0014E1B2 /* Debug */,
+				B39656EE1D66A1EA0014E1B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B39656EF1D66A1EA0014E1B2 /* Build configuration list for PBXNativeTarget "UniSelectionField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B39656F01D66A1EA0014E1B2 /* Debug */,
+				B39656F11D66A1EA0014E1B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B39656F21D66A1EA0014E1B2 /* Build configuration list for PBXNativeTarget "UniSelectionFieldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B39656F31D66A1EA0014E1B2 /* Debug */,
+				B39656F41D66A1EA0014E1B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B39656F51D66A1EA0014E1B2 /* Build configuration list for PBXNativeTarget "UniSelectionFieldUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B39656F61D66A1EA0014E1B2 /* Debug */,
+				B39656F71D66A1EA0014E1B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B39656BF1D66A1E90014E1B2 /* Project object */;
+}
