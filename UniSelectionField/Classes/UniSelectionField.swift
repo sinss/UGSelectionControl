@@ -11,6 +11,9 @@ import UIKit
 
 let UniSelectionFieldDefaultHeight : CGFloat = 55
 
+let UniSelectionFieldDidBeginSelectionName = "UniSelectionFieldDidBeginSelectionName"
+let UniSelectionFieldDidEndSelectionName = "UniSelectionFieldDidEndSelectionName"
+
 protocol UniSelectionFieldDelegate {
     func selectionField(selectionField : UniSelectionField, didSelect value : String)
     func selectionField(didCancelWithSelectionField : UniSelectionField)
@@ -27,6 +30,9 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
     private var valueLabel : UILabel?
     private var maskBg : UIView?
     
+    private var downExpandView : UIView?
+    private var upExpandView : UIView?
+    
     private var tapGesture : UITapGestureRecognizer?
     private var maskTapGesture : UITapGestureRecognizer?
     
@@ -37,6 +43,7 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
     private let cellIdentifier = "selectionCellIdentifier"
     private let duration : NSTimeInterval = 0.5
     private let maxItemCount : CGFloat = 5
+    let selectionPanelWidth : CGFloat = 150
     
     convenience init(frame: CGRect, title : String, value : String, items : [String]? = nil) {
         self.init(frame: frame)
@@ -55,7 +62,7 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
     }
     
     private func initializeUI() {
-        backgroundColor = UIColor.blackColor()
+        backgroundColor = UIColor.clearColor()
         //Create title Label
         titleLabel = UILabel(frame: CGRect.zero)
         titleLabel?.textColor = UIColor.whiteColor()
@@ -74,9 +81,14 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
         indicatorLine = UIView(frame: CGRect(x: 10, y: CGRectGetHeight(frame) - 2, width: 1, height: 1))
         indicatorLine?.backgroundColor = UIColor.whiteColor()
         
+        downExpandView = UIView(frame: CGRect.zero)
+        downExpandView?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        upExpandView = UIView(frame: CGRect.zero)
+        upExpandView?.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        
         selectionTableView = UITableView(frame: CGRect.zero)
-        selectionTableView?.contentInset = UIEdgeInsets(top: CGRectGetHeight(frame)*2, left: 0, bottom: 0, right: 0)
-        selectionTableView?.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.4)
+        selectionTableView?.contentInset = UIEdgeInsets(top: CGRectGetHeight(frame)*2, left: 0, bottom: CGRectGetHeight(frame)*2, right: 0)
+        selectionTableView?.backgroundColor = UIColor.clearColor()
         selectionTableView?.separatorStyle = .None
         selectionTableView?.delegate = self
         selectionTableView?.dataSource = self
@@ -118,15 +130,26 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
         let itemCount = items?.count ?? 1
         let tableHeight = min(CGFloat(itemCount) * CGRectGetHeight(frame), CGRectGetHeight(frame) * maxItemCount)
         var valueFrame = convertRect(valueLabel!.frame, toView: view)
-        valueFrame.origin.x = valueFrame.origin.x + 20
+        valueFrame.origin.x = valueFrame.origin.x + 71
+        valueFrame.size.width = selectionPanelWidth
+        //downloadExpanding animation
+        downExpandView?.frame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y + UniSelectionFieldDefaultHeight/2, width: selectionPanelWidth, height: 1)
+        downExpandView?.alpha = 0
+        upExpandView?.frame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y + UniSelectionFieldDefaultHeight/2, width: selectionPanelWidth, height: 1)
+        upExpandView?.alpha = 0
+        let downTargetFrame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y, width: selectionPanelWidth, height: UniSelectionFieldDefaultHeight*3)
+        let upTargetFrame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y - UniSelectionFieldDefaultHeight*2, width: selectionPanelWidth, height: UniSelectionFieldDefaultHeight*2)
+        view.insertSubview(downExpandView!, belowSubview: selectionTableView!)
+        view.insertSubview(upExpandView!, belowSubview: selectionTableView!)
         valueFrame.origin.y = valueFrame.origin.y + valueFrame.size.height/2 - tableHeight/2
-        let targetFrame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y, width: 200, height: tableHeight)
+        let targetFrame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y, width: selectionPanelWidth, height: tableHeight)
         selectionTableView?.frame = valueFrame
         
         //draw a line with animation
         var indicatorFrame = CGRect(x: 0, y: CGRectGetHeight(frame) - 2, width: 1, height: 1)
         indicatorLine?.frame = indicatorFrame
         indicatorFrame.size.width = CGRectGetWidth(frame)
+        
         UIView.animateWithDuration(animated ? duration : 0, animations: {
             self.indicatorLine?.frame = indicatorFrame
             
@@ -134,10 +157,18 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
             UIView.animateWithDuration(animated ? self.duration : 0, animations: {
                 self.maskBg?.alpha = 1
                 self.selectionTableView?.frame = targetFrame
-                self.selectionTableView?.alpha = 1
+                self.downExpandView?.frame = downTargetFrame
+                self.upExpandView?.frame = upTargetFrame
+                self.downExpandView?.alpha = 1
+                self.upExpandView?.alpha = 1
+                self.valueLabel?.alpha = 0
                 
             }) { (success) in
-                
+                UIView.animateWithDuration(0.3, animations: { 
+                    self.selectionTableView?.alpha = 1
+                })
+                //Notification for selection state changed
+                NSNotificationCenter.defaultCenter().postNotificationName(UniSelectionFieldDidBeginSelectionName, object: self, userInfo: nil)
                 self.editing = true
             }
         }
@@ -146,18 +177,45 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
     func endSelection(animated : Bool) {
         var targetFrame = selectionTableView!.frame
         targetFrame.size.height = CGRectGetHeight(frame)
-        UIView.animateWithDuration(animated ? duration : 0, animations: {
+        var valueFrame = convertRect(valueLabel!.frame, toView: downExpandView?.superview)
+        valueFrame.origin.x = valueFrame.origin.x + 71
+        valueFrame.size.width = selectionPanelWidth
+        UIView.animateWithDuration(animated ? duration * 1.5 : 0, animations: {
             self.maskBg?.alpha = 0
             self.selectionTableView?.alpha = 0
             self.selectionTableView?.frame = targetFrame
+            self.valueLabel?.alpha = 1
+            self.downExpandView?.frame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y + UniSelectionFieldDefaultHeight/2, width: self.selectionPanelWidth, height: 1)
+            self.downExpandView?.alpha = 0
+            self.upExpandView?.frame = CGRect(x: valueFrame.origin.x, y: valueFrame.origin.y + UniSelectionFieldDefaultHeight/2, width: self.selectionPanelWidth, height: 1)
+            self.upExpandView?.alpha = 0
             
         }) { (success) in
             self.editing = false
             self.maskBg?.removeFromSuperview()
             self.selectionTableView?.removeFromSuperview()
+            self.downExpandView?.removeFromSuperview()
+            self.upExpandView?.removeFromSuperview()
+        }
+        //invoke the delegate
+        if let value = valueLabel?.text {
+            delegate?.selectionField(self, didSelect: value)
+        }
+        NSNotificationCenter.defaultCenter().postNotificationName(UniSelectionFieldDidEndSelectionName, object: self, userInfo: nil)
+    }
+    
+    func hideValueLabel() {
+        UIView.animateWithDuration(0.3) { 
+            self.valueLabel?.alpha = 0
         }
     }
     
+    func showValueLabel() {
+        UIView.animateWithDuration(0.3) {
+            self.valueLabel?.alpha = 1
+        }
+    }
+
     
     //MARK: - UITapGestureRecognizer
     func handleTap() {
@@ -185,9 +243,10 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
         if cell == nil {
             cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
             cell?.backgroundColor = UIColor.clearColor()
-            cell?.textLabel?.textColor = UIColor.whiteColor()
+            cell?.textLabel?.textColor = UIColor.grayColor()
             cell?.textLabel?.textAlignment = .Right
             cell?.textLabel?.font = UIFont.systemFontOfSize(16)
+            cell?.selectionStyle = .None
         }
         if let items = items {
             let item = items[indexPath.row]
@@ -195,5 +254,36 @@ class UniSelectionField : UIControl , UITableViewDelegate, UITableViewDataSource
         }
         
         return cell!
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y + CGRectGetHeight(frame)*2
+        let index = Int(offset / UniSelectionFieldDefaultHeight)
+        guard let items = items where items.indices.contains(index) else {
+            return
+        }
+        let value = items[index]
+        valueLabel?.text = value
+    }
+    
+    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            let offset = scrollView.contentOffset.y + CGRectGetHeight(frame)*2 + 22
+            autoAdjustingIndexPath(with: offset)
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y + CGRectGetHeight(frame)*2 + 22
+        autoAdjustingIndexPath(with: offset)
+    }
+    
+    //MARK: - Private
+    private func autoAdjustingIndexPath(with offset : CGFloat) {
+        let index = Int(offset / UniSelectionFieldDefaultHeight)
+        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+        if let _ = selectionTableView?.cellForRowAtIndexPath(indexPath) {
+            selectionTableView?.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+        }
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UniSelectionTableViewCell: UITableViewCell {
+class UniSelectionTableViewCell: UITableViewCell, UniSelectionFieldDelegate {
 
     static let cellIdentifier = "UniSelectionTableViewCellID"
     var inputControl : UniSelectionField?
@@ -19,7 +19,12 @@ class UniSelectionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UniSelectionFieldDidBeginSelection), name: UniSelectionFieldDidBeginSelectionName, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UniSelectionFieldDidEndSelection), name: UniSelectionFieldDidEndSelectionName, object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -34,6 +39,7 @@ class UniSelectionTableViewCell: UITableViewCell {
         self.targetView = inView
         if inputControl == nil {
             inputControl = UniSelectionField(frame: bounds, title: title, value: value, items: items)
+            inputControl?.delegate = self
             inputControl?.addTarget(self, action: #selector(inputFieldPressed(_:)), forControlEvents: .TouchUpInside)
             addSubview(inputControl!)
         }
@@ -47,4 +53,21 @@ class UniSelectionTableViewCell: UITableViewCell {
         inputControl?.begingSelection(in: targetView, delegate: self, animated: true)
     }
     
+    //MARK: - UniSelectionFieldDelegate
+    func selectionField(selectionField : UniSelectionField, didSelect value : String) {
+        defaultValue = value
+    }
+    
+    func selectionField(didCancelWithSelectionField : UniSelectionField) {
+        
+    }
+    
+    //MARK: - Notifications
+    func UniSelectionFieldDidBeginSelection() {
+        inputControl?.hideValueLabel()
+    }
+    
+    func UniSelectionFieldDidEndSelection() {
+        inputControl?.showValueLabel()
+    }
 }
