@@ -25,13 +25,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.clearColor()
-        tableView.separatorStyle = .None
-        tableView.registerNib(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: yearIdentifier)
-        tableView.registerNib(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: monthIdentifier)
-        tableView.registerNib(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: dayIdentifier)
-        tableView.registerNib(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: hourIdentifier)
-        tableView.registerNib(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: minuteIdentifier)
+        tableView.backgroundColor = UIColor.clear
+        tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: yearIdentifier)
+        tableView.register(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: monthIdentifier)
+        tableView.register(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: dayIdentifier)
+        tableView.register(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: hourIdentifier)
+        tableView.register(UINib(nibName: "UniSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: minuteIdentifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 
     
-    func inputFieldPressed(sender : UIControl) {
+    func inputFieldPressed(_ sender : UIControl) {
         var items = [String]()
         for i in 1..<105 {
             items.append(String(i))
@@ -51,11 +51,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     //MARK: - UITableViewDelegate, UITableViewDataSource
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
         } else if section == 1 {
@@ -64,14 +64,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return 0
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 22
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: CGRectGetWidth(view.frame), height: 22))
-        label.textColor = UIColor.lightGrayColor()
-        label.font = UIFont.systemFontOfSize(11)
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 22))
+        label.textColor = UIColor.lightGray
+        label.font = UIFont.systemFont(ofSize: 11)
         if section == 0 {
             label.text = "Birthday date"
         } else if section == 1 {
@@ -80,11 +80,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return label
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
             if indexPath.row == 0 {
@@ -92,8 +92,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 for i in 1..<105 {
                     items.append(String(i+1911))
                 }
-                let cell = tableView.dequeueReusableCellWithIdentifier(yearIdentifier, forIndexPath: indexPath) as! UniSelectionTableViewCell
-                cell.backgroundColor = UIColor.clearColor()
+                let cell = tableView.dequeueReusableCell(withIdentifier: yearIdentifier, for: indexPath) as! UniSelectionTableViewCell
+                cell.backgroundColor = UIColor.clear
                 cell.setupControl(for: "Year", value: "1982", items: items, inView: self.view)
                 return cell
             } else if indexPath.row == 1 {
@@ -101,8 +101,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 for i in 1...12 {
                     items.append(String(i))
                 }
-                let cell = tableView.dequeueReusableCellWithIdentifier(monthIdentifier, forIndexPath: indexPath) as! UniSelectionTableViewCell
-                cell.backgroundColor = UIColor.clearColor()
+                let cell = tableView.dequeueReusableCell(withIdentifier: monthIdentifier, for: indexPath) as! UniSelectionTableViewCell
+                cell.backgroundColor = UIColor.clear
                 cell.setupControl(for: "Month", value: "8", items: items, inView: self.view)
                 return cell
             } else if indexPath.row == 2 {
@@ -110,8 +110,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 for i in 1...31 {
                     items.append(String(i))
                 }
-                let cell = tableView.dequeueReusableCellWithIdentifier(dayIdentifier, forIndexPath: indexPath) as! UniSelectionTableViewCell
-                cell.backgroundColor = UIColor.clearColor()
+                let cell = tableView.dequeueReusableCell(withIdentifier: dayIdentifier, for: indexPath) as! UniSelectionTableViewCell
+                cell.backgroundColor = UIColor.clear
                 cell.setupControl(for: "Date", value: "17", items: items, inView: self.view)
                 return cell
             }
@@ -121,8 +121,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 for i in 1..<24 {
                     items.append(String(i))
                 }
-                let cell = tableView.dequeueReusableCellWithIdentifier(hourIdentifier, forIndexPath: indexPath) as! UniSelectionTableViewCell
-                cell.backgroundColor = UIColor.clearColor()
+                let cell = tableView.dequeueReusableCell(withIdentifier: hourIdentifier, for: indexPath) as! UniSelectionTableViewCell
+                cell.backgroundColor = UIColor.clear
                 cell.setupControl(for: "Hour", value: "2", items: items, inView: self.view)
                 return cell
             } else if indexPath.row == 1 {
@@ -130,8 +130,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 for i in 1...60 {
                     items.append(String(i))
                 }
-                let cell = tableView.dequeueReusableCellWithIdentifier(minuteIdentifier, forIndexPath: indexPath) as! UniSelectionTableViewCell
-                cell.backgroundColor = UIColor.clearColor()
+                let cell = tableView.dequeueReusableCell(withIdentifier: minuteIdentifier, for: indexPath) as! UniSelectionTableViewCell
+                cell.backgroundColor = UIColor.clear
                 cell.setupControl(for: "Minute", value: "1", items: items, inView: self.view)
                 return cell
             }

@@ -19,15 +19,15 @@ class UniSelectionTableViewCell: UITableViewCell, UniSelectionFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UniSelectionFieldDidBeginSelection), name: UniSelectionFieldDidBeginSelectionName, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(UniSelectionFieldDidEndSelection), name: UniSelectionFieldDidEndSelectionName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UniSelectionFieldDidBeginSelection), name: NSNotification.Name(rawValue: UniSelectionFieldDidBeginSelectionName), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(UniSelectionFieldDidEndSelection), name: NSNotification.Name(rawValue: UniSelectionFieldDidEndSelectionName), object: nil)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -40,12 +40,12 @@ class UniSelectionTableViewCell: UITableViewCell, UniSelectionFieldDelegate {
         if inputControl == nil {
             inputControl = UniSelectionField(frame: bounds, title: title, value: value, items: items)
             inputControl?.delegate = self
-            inputControl?.addTarget(self, action: #selector(inputFieldPressed(_:)), forControlEvents: .TouchUpInside)
+            inputControl?.addTarget(self, action: #selector(inputFieldPressed(_:)), for: .touchUpInside)
             addSubview(inputControl!)
         }
     }
     
-    func inputFieldPressed(sender : UIControl) {
+    func inputFieldPressed(_ sender : UIControl) {
         guard let targetView = targetView, let items = items else {
             return
         }
@@ -54,11 +54,11 @@ class UniSelectionTableViewCell: UITableViewCell, UniSelectionFieldDelegate {
     }
     
     //MARK: - UniSelectionFieldDelegate
-    func selectionField(selectionField : UniSelectionField, didSelect value : String) {
+    func selectionField(_ selectionField : UniSelectionField, didSelect value : String) {
         defaultValue = value
     }
     
-    func selectionField(didCancelWithSelectionField : UniSelectionField) {
+    func selectionField(_ didCancelWithSelectionField : UniSelectionField) {
         
     }
     
