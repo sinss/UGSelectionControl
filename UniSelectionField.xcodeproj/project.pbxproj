@@ -14,6 +14,9 @@
 		B39656D51D66A1E90014E1B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39656D31D66A1E90014E1B2 /* LaunchScreen.storyboard */; };
 		B39656E01D66A1EA0014E1B2 /* UniSelectionFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656DF1D66A1EA0014E1B2 /* UniSelectionFieldTests.swift */; };
 		B39656EB1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656EA1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift */; };
+		B39656FA1D66A2490014E1B2 /* UniSelectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656F91D66A2490014E1B2 /* UniSelectionField.swift */; };
+		B39656FF1D67065F0014E1B2 /* UniSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39656FD1D67065F0014E1B2 /* UniSelectionTableViewCell.swift */; };
+		B39657001D67065F0014E1B2 /* UniSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B39656FE1D67065F0014E1B2 /* UniSelectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		B39656E61D66A1EA0014E1B2 /* UniSelectionFieldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniSelectionFieldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39656EA1D66A1EA0014E1B2 /* UniSelectionFieldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniSelectionFieldUITests.swift; sourceTree = "<group>"; };
 		B39656EC1D66A1EA0014E1B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B39656F91D66A2490014E1B2 /* UniSelectionField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniSelectionField.swift; sourceTree = "<group>"; };
+		B39656FD1D67065F0014E1B2 /* UniSelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		B39656FE1D67065F0014E1B2 /* UniSelectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UniSelectionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		B39656C91D66A1E90014E1B2 /* UniSelectionField */ = {
 			isa = PBXGroup;
 			children = (
+				B39656F81D66A2190014E1B2 /* Classes */,
 				B39656CA1D66A1E90014E1B2 /* AppDelegate.swift */,
 				B39656CC1D66A1E90014E1B2 /* ViewController.swift */,
 				B39656CE1D66A1E90014E1B2 /* Main.storyboard */,
@@ -123,6 +130,16 @@
 				B39656EC1D66A1EA0014E1B2 /* Info.plist */,
 			);
 			path = UniSelectionFieldUITests;
+			sourceTree = "<group>";
+		};
+		B39656F81D66A2190014E1B2 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				B39656F91D66A2490014E1B2 /* UniSelectionField.swift */,
+				B39656FD1D67065F0014E1B2 /* UniSelectionTableViewCell.swift */,
+				B39656FE1D67065F0014E1B2 /* UniSelectionTableViewCell.xib */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +249,7 @@
 				B39656D51D66A1E90014E1B2 /* LaunchScreen.storyboard in Resources */,
 				B39656D21D66A1E90014E1B2 /* Assets.xcassets in Resources */,
 				B39656D01D66A1E90014E1B2 /* Main.storyboard in Resources */,
+				B39657001D67065F0014E1B2 /* UniSelectionTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +275,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B39656CD1D66A1E90014E1B2 /* ViewController.swift in Sources */,
+				B39656FA1D66A2490014E1B2 /* UniSelectionField.swift in Sources */,
 				B39656CB1D66A1E90014E1B2 /* AppDelegate.swift in Sources */,
+				B39656FF1D67065F0014E1B2 /* UniSelectionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
